@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,15 +5,23 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-
-    Rigidbody2D myrigidbody2D;
-
+    
     Vector2 rawInput;
-    [SerializeField] float moveSpeed = 16f; //Default 16;
+    Vector2 minBounds;
+    Vector2 maxBounds;
+
+    [SerializeField] float moveSpeed = 16f;
+    [SerializeField] float paddingTop;
+    [SerializeField] float paddingBottom;
+    [SerializeField] float paddingLeft;
+    [SerializeField] float paddingRight; 
 
     private void Start()
     {
-        myrigidbody2D = GetComponent<Rigidbody2D>();
+        Camera cam;
+        cam = Camera.main;
+        minBounds = cam.ViewportToWorldPoint(new Vector2(0, 0));
+        maxBounds = cam.ViewportToWorldPoint(new Vector2(1, 1));
     }
     private void Update()
     {
@@ -25,9 +30,14 @@ public class Player : MonoBehaviour
 
     private void Moving()
     {
-        //process the input from OnMove()
-        transform.Translate(new Vector3(rawInput.x, rawInput.y, 0) * moveSpeed * Time.deltaTime);
+        Vector2 delta = rawInput * moveSpeed * Time.deltaTime;
+        Vector2 newPos = new Vector2();
+        
+        newPos.x = Mathf.Clamp(transform.position.x + delta.x, minBounds.x + paddingLeft, maxBounds.x - paddingRight);
+        
+        newPos.y = Mathf.Clamp(transform.position.y + delta.y, minBounds.y + paddingBottom, maxBounds.y - paddingTop);
 
+        transform.position = newPos;
     }
 
     private void OnMove(InputValue value)
