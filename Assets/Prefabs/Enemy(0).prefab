@@ -10,6 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7599066730562888024}
   - component: {fileID: -5566708234174795780}
+  - component: {fileID: 7561506045652426190}
+  - component: {fileID: 1289991036711265290}
+  - component: {fileID: 7748201272536110418}
+  - component: {fileID: 3865132290456392378}
   m_Layer: 0
   m_Name: Enemy(0)
   m_TagString: Untagged
@@ -31,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 8777067641949564036}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-5566708234174795780
 MonoBehaviour:
@@ -45,6 +49,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e180dc6f9bf1c54a824a9dd6f2e123e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &7561506045652426190
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607170264395346943}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &1289991036711265290
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607170264395346943}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0077853203, y: 0.07785624}
+  serializedVersion: 2
+  m_Radius: 0.38840663
+--- !u!114 &7748201272536110418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607170264395346943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d6416a68f9e6f4589ee380907ca0ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+--- !u!114 &3865132290456392378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607170264395346943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e56b9f2aa0695ef40a8baf869fb90851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
 --- !u!1 &8323500458590032661
 GameObject:
   m_ObjectHideFlags: 0

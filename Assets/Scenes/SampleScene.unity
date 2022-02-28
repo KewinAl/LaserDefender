@@ -158,6 +158,7 @@ MonoBehaviour:
   timeBetweenWaves: 0
   timeBetweenEnemySpawns: 1
   spawnTimeVariance: 0.5
+  isLooping: 1
   currentWave: {fileID: 11400000, guid: 8822cc2650993984e8c690f0ec274f85, type: 2}
 --- !u!4 &89320271
 Transform:
