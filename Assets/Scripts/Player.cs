@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    
+    Shooter shooter;
+
     Vector2 rawInput;
     Vector2 minBounds;
     Vector2 maxBounds;
@@ -14,8 +15,12 @@ public class Player : MonoBehaviour
     [SerializeField] float paddingTop;
     [SerializeField] float paddingBottom;
     [SerializeField] float paddingLeft;
-    [SerializeField] float paddingRight; 
+    [SerializeField] float paddingRight;
 
+    private void Awake()
+    {
+        shooter = GetComponent<Shooter>();
+    }
     private void Start()
     {
         Camera cam;
@@ -46,4 +51,10 @@ public class Player : MonoBehaviour
         rawInput = value.Get<Vector2>();
     }
 
+    private void OnFire(InputValue value)
+    {
+        if (shooter == null) return;
+        shooter.isFiring = value.isPressed;
+
+    }
 }
