@@ -9,7 +9,7 @@ public class WaveConfigSO : ScriptableObject
     [SerializeField] Transform pathPrefab;
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float timeBetweenEnemySpawns = 1f;
-    [SerializeField] float spawnTimeVariance = 0f;
+    [SerializeField] float spawnTimeVariance = 0.3f;
     [SerializeField] float minimumSpawnTime = 0.2f;
 
     public float GetRandomSpawnTime()
