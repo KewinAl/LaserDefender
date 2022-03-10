@@ -19,8 +19,13 @@ public class Shooter : MonoBehaviour
     [HideInInspector]public bool isFiring;
     Coroutine firingCoroutine;
 
+    AudioPlayer audioPlayer;
 
 
+    private void Awake()
+    {
+        audioPlayer = FindObjectOfType<AudioPlayer>();
+    }
     void Start()
     {
         if (useAI)
@@ -68,6 +73,9 @@ public class Shooter : MonoBehaviour
             float firingTime = UnityEngine.Random.Range(baseFiringRate - firingRateVariance,
             baseFiringRate + firingRateVariance);
             firingTime = Mathf.Clamp(firingTime, firingRateMinimum, float.MaxValue);
+
+
+            audioPlayer.PlayExplosionClip();
 
             yield return new WaitForSeconds(firingTime);
 
