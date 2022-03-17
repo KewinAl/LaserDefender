@@ -9,11 +9,11 @@ public class LevelManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        StartCoroutine(WaitAndLoad(0, loadDelay));
+        StartCoroutine(WaitAndLoad(0, loadDelay/2));
     }
     public void LoadGame()
     {
-        StartCoroutine(WaitAndLoad(1, loadDelay));
+        StartCoroutine(WaitAndLoad(1, loadDelay/2));
     }
     public void LoadGameOver()
     {
