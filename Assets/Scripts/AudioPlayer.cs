@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,28 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField] AudioClip explosionCLip;
     [SerializeField][Range(0f, 1f)] float explosionVolume = 0.5f;
 
+    static AudioPlayer instance;
+
+
+    private void Awake()
+    {
+        ManageSingleton();
+    }
+
+    private void ManageSingleton()
+    {
+        
+        if (instance != null){
+            gameObject.SetActive(false);//UnityThings
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        };
+        
+    }
 
     public void PlayShootingClip()
     {
